@@ -26,6 +26,14 @@ public class Project extends BaseModel {
         return tags;
     }
 
+    public boolean tagsContainCompareTag(List<String> compareTags) {
+        for (String compareTag : compareTags) {
+            if (this.getTags().contains(compareTag))
+                return true;
+        }
+        return false;
+    }
+
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
