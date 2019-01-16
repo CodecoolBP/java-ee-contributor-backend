@@ -1,18 +1,12 @@
 package com.codecool.contributor.service.implementation;
 
-import com.codecool.contributor.config.Initializer;
 import com.codecool.contributor.model.EnumStatus;
 import com.codecool.contributor.model.Project;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
@@ -23,7 +17,7 @@ public class ProjectStorageMemTest {
     ArrayList<String> tags = new ArrayList<>();
 
     @Before
-    public void init() throws Exception {
+    public void init() {
 
         tags.add("tag1");
         tags.add("tag2");
