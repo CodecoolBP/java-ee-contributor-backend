@@ -26,8 +26,12 @@ public class Project extends BaseModel {
         return tags;
     }
 
-    public String getTagByString(String tag) {
-        return getTags().stream().filter(t -> );
+    public boolean compareTags(List<String> compareTags) {
+        for (String compareTag : compareTags) {
+            if (this.getTags().contains(compareTag))
+                return true;
+        }
+        return false;
     }
 
     public void setTags(List<String> tags) {
