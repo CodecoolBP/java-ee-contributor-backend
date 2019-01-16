@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/contributorapi")
 public class ProjectController {
 
@@ -21,20 +23,41 @@ public class ProjectController {
         return projectStorage.getAll().collect(Collectors.toList());
     }
 
+    @GetMapping(value="/list/filter")
+    public List<Project> projectListFiltered(@RequestParam(value = "status", required = false) String status,
+                                             @RequestParam(value = "tag", required = false) List<String> tags) {
+        return projectStorage.getBy(status, tags).collect(Collectors.toList());
+    }
+
     @GetMapping(value="/project/{id}")
-    public Project projectById(@PathVariable("id") Integer id) {
-        return projectStorage.find(id);
+    public List<Project> projectById(@PathVariable("id") Integer id) {
+        List<Project> returnList = new ArrayList<>();
+        returnList.add(projectStorage.find(id));
+        return returnList;
     }
 
     @PostMapping("/project/add")
-    public Project addProject(@RequestBody @Valid Project project) {
+    public List<Project> addProject(@RequestBody @Valid Project project) {
         this.projectStorage.add(project);
-        return project;
+        List<Project> returnList = new ArrayList<>();
+        returnList.add(project);
+        return returnList;
     }
 
     @DeleteMapping(value="/project/{id}/delete")
     public String deleteProjectById(@PathVariable("id") Integer id) {
         this.projectStorage.remove(id);
         return "Success.";
+    }
+
+    @PutMapping(value="/project/{id}/edit")
+    public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody @Valid Project editedProject) {
+        if (id == editedProject.getId()) {
+            Project returnedProject = this.projectStorage.edit(editedProject);
+            List<Project> returnList = new ArrayList<>();
+            returnList.add(returnedProject);
+            return returnList;
+        }
+        return new ArrayList<>();
     }
 }

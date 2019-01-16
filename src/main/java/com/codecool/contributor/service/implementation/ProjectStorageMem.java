@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -22,7 +24,7 @@ public class ProjectStorageMem implements ProjectStorageInt {
 
     @Override
     public Project find(int id) {
-        return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+        return data.stream().filter(p -> p.getId() == id).findFirst().orElse(null);
     }
 
     @Override
@@ -31,7 +33,31 @@ public class ProjectStorageMem implements ProjectStorageInt {
     }
 
     @Override
+    public Project edit(Project editedProject) {
+        Project baseProject = this.find(editedProject.getId());
+        baseProject.setName(editedProject.getName());
+        baseProject.setDescription(editedProject.getDescription());
+        baseProject.setShortDesc(editedProject.getShortDesc());
+        baseProject.setOrganisation(editedProject.getOrganisation());
+        baseProject.setRequirements(editedProject.getRequirements());
+        baseProject.setTags(editedProject.getTags());
+        baseProject.setStatus(editedProject.getStatus());
+        return baseProject;
+    }
+
+    @Override
     public Stream<Project> getAll() {
         return data.stream();
     }
+
+    @Override
+    public Stream<Project> getBy(String status) {
+        return data.stream().filter(p -> p.getStatus().toString().equals(status));
+    }
+
+    @Override
+    public Stream<Project> getBy(List<String> compareTags) {
+        return data.stream().filter(p -> p.tagsContainCompareTag(compareTags));
+    }
+
 }
