@@ -6,9 +6,13 @@ public class Project extends BaseModel {
     private String requirements;
     private List<String> tags;
     private EnumStatus status;
+    private String shortDesc;
+    private String organisation;
 
-    public Project(String name, String description, String requirements, List<String> tags, EnumStatus status) {
+    public Project(String name, String description, String shortDesc, String organisation, String requirements, List<String> tags, EnumStatus status) {
         super(name, description);
+        this.shortDesc = shortDesc;
+        this.organisation = organisation;
         this.requirements = requirements;
         this.tags = tags;
         this.status = status;
@@ -44,5 +48,21 @@ public class Project extends BaseModel {
 
     public void setStatus(EnumStatus status) {
         this.status = status;
+    }
+
+    public String getShortDesc() {
+        return shortDesc;
+    }
+
+    public void setShortDesc(String shortDesc) {
+        this.shortDesc = shortDesc;
+    }
+
+    public String getOrganisation() {
+        return organisation;
+    }
+
+    public void setOrganisation(String organisation) {
+        this.organisation = organisation;
     }
 }
