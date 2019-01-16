@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,14 +23,18 @@ public class ProjectController {
     }
 
     @GetMapping(value="/project/{id}")
-    public Project projectById(@PathVariable("id") Integer id) {
-        return projectStorage.find(id);
+    public List<Project> projectById(@PathVariable("id") Integer id) {
+        List<Project> returnList = new ArrayList<>();
+        returnList.add(projectStorage.find(id));
+        return returnList;
     }
 
     @PostMapping("/project/add")
-    public Project addProject(@RequestBody @Valid Project project) {
+    public List<Project> addProject(@RequestBody @Valid Project project) {
         this.projectStorage.add(project);
-        return project;
+        List<Project> returnList = new ArrayList<>();
+        returnList.add(project);
+        return returnList;
     }
 
     @DeleteMapping(value="/project/{id}/delete")
