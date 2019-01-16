@@ -3,11 +3,11 @@ package com.codecool.contributor.model;
 import java.util.List;
 
 public class Project extends BaseModel {
+    private String shortDesc;
+    private String organisation;
     private String requirements;
     private List<String> tags;
     private EnumStatus status;
-    private String shortDesc;
-    private String organisation;
 
     public Project(String name, String description, String shortDesc, String organisation, String requirements, List<String> tags, EnumStatus status) {
         super(name, description);
