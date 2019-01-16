@@ -44,7 +44,7 @@ public class ProjectStorageMem implements ProjectStorageInt {
 
     @Override
     public Stream<Project> getBy(List<String> compareTags) {
-        return data.stream().filter(p -> p.compareTags(compareTags));
+        return data.stream().filter(p -> p.tagsContainCompareTag(compareTags));
     }
 
 }

@@ -26,7 +26,7 @@ public class Project extends BaseModel {
         return tags;
     }
 
-    public boolean compareTags(List<String> compareTags) {
+    public boolean tagsContainCompareTag(List<String> compareTags) {
         for (String compareTag : compareTags) {
             if (this.getTags().contains(compareTag))
                 return true;
