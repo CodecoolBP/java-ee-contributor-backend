@@ -34,4 +34,9 @@ public class ProjectStorageMem implements ProjectStorageInt {
     public Stream<Project> getAll() {
         return data.stream();
     }
+
+    @Override
+    public Stream<Project> getBy(String status) {
+
+    }
 }

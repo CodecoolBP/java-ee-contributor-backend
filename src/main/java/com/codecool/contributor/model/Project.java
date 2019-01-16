@@ -26,6 +26,10 @@ public class Project extends BaseModel {
         return tags;
     }
 
+    public String getTagByString(String tag) {
+        return getTags().stream().filter(t -> );
+    }
+
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
