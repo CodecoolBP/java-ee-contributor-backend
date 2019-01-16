@@ -21,6 +21,12 @@ public class ProjectController {
         return projectStorage.getAll().collect(Collectors.toList());
     }
 
+    @GetMapping(value="/list/filter")
+    public List<Project> projectListFiltered(@RequestParam(value = "status", required = false) String status,
+                                             @RequestParam(value = "tag", required = false) List<String> tags) {
+        return projectStorage.getBy(status, tags).collect(Collectors.toList());
+    }
+
     @GetMapping(value="/project/{id}")
     public Project projectById(@PathVariable("id") Integer id) {
         return projectStorage.find(id);
