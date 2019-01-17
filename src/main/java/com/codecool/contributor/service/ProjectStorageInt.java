@@ -8,12 +8,13 @@ import java.util.stream.Stream;
 
 public interface ProjectStorageInt {
 
-    void add(Project product);
+    void add(Project project);
     Project find(int id);
     void remove(int id);
+    Project edit(Project editedProject );
+
 
     Stream<Project> getAll();
-
     Stream<Project> getBy(String status);
     Stream<Project> getBy(List<String> tags);
 
