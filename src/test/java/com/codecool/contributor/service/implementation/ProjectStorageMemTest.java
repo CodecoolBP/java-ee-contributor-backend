@@ -45,4 +45,28 @@ public class ProjectStorageMemTest {
         projectStorageMem.remove(1);
         assertNull("Remove project by id testing", projectStorageMem.find(1));
     }
+
+    @Test
+    public void editOverWriteProject() {
+        Project projectToEdit = projectStorageMem.find(1);
+        ArrayList<String> testTags = new ArrayList<>();
+        testTags.add("TestTags");
+        projectToEdit.setName("TestName");
+        projectToEdit.setDescription("TestDescription");
+        projectToEdit.setShortDesc("TestShortDescription");
+        projectToEdit.setOrganisation("TestOrganisation");
+        projectToEdit.setRequirements("TestRequirements");
+        projectToEdit.setTags(testTags);
+        projectToEdit.setStatus(EnumStatus.INPROGRESS);
+        projectStorageMem.edit(projectToEdit);
+
+        assertEquals("Test setName(): ","TestName", projectStorageMem.find(1).getName());
+        assertEquals("Test setDescription(): ","TestDescription", projectStorageMem.find(1).getDescription());
+        assertEquals("Test setShortDesc(): ","TestShortDescription", projectStorageMem.find(1).getShortDesc());
+        assertEquals("Test setOrganisation(): ","TestOrganisation", projectStorageMem.find(1).getOrganisation() );
+        assertEquals("Test setRequirements(): ","TestRequirements", projectStorageMem.find(1).getRequirements() );
+        assertEquals("Test setTags(): ",testTags, projectStorageMem.find(1).getTags());
+        assertEquals("Test setStatus(): ",EnumStatus.INPROGRESS, projectStorageMem.find(1).getStatus());
+    }
+
 }
