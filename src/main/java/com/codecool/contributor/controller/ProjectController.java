@@ -37,7 +37,7 @@ public class ProjectController {
     }
 
     @PostMapping("/project/add")
-    public List<Project> addProject(@RequestBody @Valid Project project) {
+    public List<Project> addProject(@RequestBody Project project) {
         this.projectStorage.add(project);
         List<Project> returnList = new ArrayList<>();
         returnList.add(project);
@@ -51,7 +51,7 @@ public class ProjectController {
     }
 
     @PutMapping(value="/project/{id}/edit")
-    public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody @Valid Project editedProject) {
+    public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
         if (id == editedProject.getId()) {
             Project returnedProject = this.projectStorage.edit(editedProject);
             List<Project> returnList = new ArrayList<>();
