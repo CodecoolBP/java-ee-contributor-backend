@@ -48,9 +48,9 @@ public class ProjectStorageMemTest {
 
     @Test
     public void editOverWriteProject() {
+        Project projectToEdit = projectStorageMem.find(1);
         ArrayList<String> testTags = new ArrayList<>();
         testTags.add("TestTags");
-        Project projectToEdit = projectStorageMem.find(1);
         projectToEdit.setName("TestName");
         projectToEdit.setDescription("TestDescription");
         projectToEdit.setShortDesc("TestShortDescription");
@@ -58,14 +58,15 @@ public class ProjectStorageMemTest {
         projectToEdit.setRequirements("TestRequirements");
         projectToEdit.setTags(testTags);
         projectToEdit.setStatus(EnumStatus.INPROGRESS);
+        projectStorageMem.edit(projectToEdit);
 
-        assertEquals("Test setName(): ","TestName", projectToEdit.getName());
-        assertEquals("Test setDescription(): ","TestDescription", projectToEdit.getDescription());
-        assertEquals("Test setShortDesc(): ","TestShortDescription", projectToEdit.getShortDesc());
-        assertEquals("Test setOrganisation(): ","TestOrganisation", projectToEdit.getOrganisation() );
-        assertEquals("Test setRequirements(): ","TestRequirements", projectToEdit.getRequirements() );
-        assertEquals("Test setTags(): ",testTags, projectToEdit.getTags());
-        assertEquals("Test setStatus(): ",EnumStatus.INPROGRESS, projectToEdit.getStatus());
+        assertEquals("Test setName(): ","TestName", projectStorageMem.find(1).getName());
+        assertEquals("Test setDescription(): ","TestDescription", projectStorageMem.find(1).getDescription());
+        assertEquals("Test setShortDesc(): ","TestShortDescription", projectStorageMem.find(1).getShortDesc());
+        assertEquals("Test setOrganisation(): ","TestOrganisation", projectStorageMem.find(1).getOrganisation() );
+        assertEquals("Test setRequirements(): ","TestRequirements", projectStorageMem.find(1).getRequirements() );
+        assertEquals("Test setTags(): ",testTags, projectStorageMem.find(1).getTags());
+        assertEquals("Test setStatus(): ",EnumStatus.INPROGRESS, projectStorageMem.find(1).getStatus());
     }
 
 }
