@@ -9,13 +9,13 @@ public class Project extends BaseModel {
     private List<String> tags;
     private EnumStatus status;
 
-    public Project(String name, String description, String shortDesc, String organisation, String requirements, List<String> tags, EnumStatus status) {
+    public Project(String name, String description, String shortDesc, String organisation, String requirements, List<String> tags) {
         super(name, description);
         this.shortDesc = shortDesc;
         this.organisation = organisation;
         this.requirements = requirements;
         this.tags = tags;
-        this.status = status;
+        this.status = EnumStatus.OPEN;
     }
 
     public String getRequirements() {

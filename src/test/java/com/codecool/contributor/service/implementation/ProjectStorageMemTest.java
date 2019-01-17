@@ -21,13 +21,13 @@ public class ProjectStorageMemTest {
 
         tags.add("tag1");
         tags.add("tag2");
-        projectStorageMem.add(new Project("Name1", "Test some stuff!","T S S", "Igen","No requirements", tags, EnumStatus.valueOf("CLOSED")));
-        projectStorageMem.add(new Project("Name2", "Test more stuff!","T M S", "T M S","No requirements", tags, EnumStatus.valueOf("OPEN")));
+        projectStorageMem.add(new Project("Name1", "Test some stuff!","T S S", "Igen","No requirements", tags));
+        projectStorageMem.add(new Project("Name2", "Test more stuff!","T M S", "T M S","No requirements", tags));
     }
 
     @Test
     public void testAddNewProject() {
-        projectStorageMem.add(new Project("Name3", "Test add method","T A M", "Nem","Nope", tags, EnumStatus.valueOf("OPEN")));
+        projectStorageMem.add(new Project("Name3", "Test add method","T A M", "Nem","Nope", tags));
         List result = projectStorageMem.getAll().collect(Collectors.toList());
         assertEquals("Add new project testing", 3, result.size());
     }
