@@ -13,7 +13,7 @@ public class BaseModel {
     protected String name;
     protected String description;
 
-    public BaseModel(String name, String description) {
+    BaseModel(String name, String description) {
         this.name = name;
         this.description = description;
     }
