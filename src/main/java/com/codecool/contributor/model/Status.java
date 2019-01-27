@@ -1,6 +1,6 @@
 package com.codecool.contributor.model;
 
-public enum EnumStatus {
+public enum Status {
     OPEN, INPROGRESS, CLOSED
 
 }

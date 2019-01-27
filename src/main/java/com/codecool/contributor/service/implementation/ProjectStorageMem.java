@@ -2,17 +2,15 @@ package com.codecool.contributor.service.implementation;
 
 
 import com.codecool.contributor.model.Project;
-import com.codecool.contributor.service.ProjectStorageInt;
+import com.codecool.contributor.service.ProjectStorage;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-public class ProjectStorageMem implements ProjectStorageInt {
+public class ProjectStorageMem implements ProjectStorage {
 
     private List<Project> data = new ArrayList<>();
 

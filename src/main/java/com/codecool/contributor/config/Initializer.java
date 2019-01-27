@@ -1,6 +1,5 @@
 package com.codecool.contributor.config;
 
-import com.codecool.contributor.model.EnumStatus;
 import com.codecool.contributor.model.Project;
 import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.springframework.beans.factory.annotation.Autowired;

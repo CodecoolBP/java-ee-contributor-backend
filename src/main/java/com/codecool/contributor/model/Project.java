@@ -1,8 +1,5 @@
 package com.codecool.contributor.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 public class Project extends BaseModel {
@@ -10,7 +7,7 @@ public class Project extends BaseModel {
     private String organisation;
     private String requirements;
     private List<String> tags;
-    private EnumStatus status;
+    private Status status;
 
     public Project() {
     }
@@ -21,7 +18,7 @@ public class Project extends BaseModel {
         this.organisation = organisation;
         this.requirements = requirements;
         this.tags = tags;
-        this.status = EnumStatus.OPEN;
+        this.status = Status.OPEN;
     }
 
     public String getShortDesc() {
@@ -56,11 +53,11 @@ public class Project extends BaseModel {
         this.tags = tags;
     }
 
-    public EnumStatus getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(EnumStatus status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

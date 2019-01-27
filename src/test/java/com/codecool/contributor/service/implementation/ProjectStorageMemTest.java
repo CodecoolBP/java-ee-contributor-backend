@@ -1,6 +1,6 @@
 package com.codecool.contributor.service.implementation;
 
-import com.codecool.contributor.model.EnumStatus;
+import com.codecool.contributor.model.Status;
 import com.codecool.contributor.model.Project;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,7 +57,7 @@ public class ProjectStorageMemTest {
         projectToEdit.setOrganisation("TestOrganisation");
         projectToEdit.setRequirements("TestRequirements");
         projectToEdit.setTags(testTags);
-        projectToEdit.setStatus(EnumStatus.INPROGRESS);
+        projectToEdit.setStatus(Status.INPROGRESS);
         projectStorageMem.edit(projectToEdit);
 
         assertEquals("Test setName(): ","TestName", projectStorageMem.find(1).getName());
@@ -66,7 +66,7 @@ public class ProjectStorageMemTest {
         assertEquals("Test setOrganisation(): ","TestOrganisation", projectStorageMem.find(1).getOrganisation() );
         assertEquals("Test setRequirements(): ","TestRequirements", projectStorageMem.find(1).getRequirements() );
         assertEquals("Test setTags(): ",testTags, projectStorageMem.find(1).getTags());
-        assertEquals("Test setStatus(): ",EnumStatus.INPROGRESS, projectStorageMem.find(1).getStatus());
+        assertEquals("Test setStatus(): ", Status.INPROGRESS, projectStorageMem.find(1).getStatus());
     }
 
 }
