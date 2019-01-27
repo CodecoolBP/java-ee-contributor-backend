@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/contributorapi")
+@RequestMapping("/api")
 public class ProjectController {
 
     @Autowired
@@ -43,13 +43,13 @@ public class ProjectController {
         return returnList;
     }
 
-    @DeleteMapping(value="/project/{id}/delete")
+    @DeleteMapping(value="/project/{id}")
     public String deleteProjectById(@PathVariable("id") Integer id) {
         this.projectStorage.remove(id);
         return "Success.";
     }
 
-    @PutMapping(value="/project/{id}/edit")
+    @PutMapping(value="/project/{id}")
     public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
         if (id == editedProject.getId()) {
             Project returnedProject = this.projectStorage.edit(editedProject);
