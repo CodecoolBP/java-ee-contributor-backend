@@ -1,16 +1,18 @@
 package com.codecool.contributor.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@NoArgsConstructor
+@Data
 public class Project extends BaseModel {
     private String shortDesc;
     private String organisation;
     private String requirements;
     private List<String> tags;
     private Status status;
-
-    public Project() {
-    }
 
     public Project(String name, String description, String shortDesc, String organisation, String requirements, List<String> tags) {
         super(name, description);
@@ -19,46 +21,6 @@ public class Project extends BaseModel {
         this.requirements = requirements;
         this.tags = tags;
         this.status = Status.OPEN;
-    }
-
-    public String getShortDesc() {
-        return shortDesc;
-    }
-
-    public void setShortDesc(String shortDesc) {
-        this.shortDesc = shortDesc;
-    }
-
-    public String getOrganisation() {
-        return organisation;
-    }
-
-    public void setOrganisation(String organisation) {
-        this.organisation = organisation;
-    }
-
-    public String getRequirements() {
-        return requirements;
-    }
-
-    public void setRequirements(String requirements) {
-        this.requirements = requirements;
-    }
-
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 
     public boolean tagsContainCompareTag(List<String> compareTags) {
