@@ -17,12 +17,12 @@ public class ProjectController {
     @Autowired
     private ProjectStorageMem projectStorage;
 
-    @GetMapping(value="/list")
+    @GetMapping(value="/projects")
     public List<Project> projectList() {
         return projectStorage.getAll().collect(Collectors.toList());
     }
 
-    @GetMapping(value="/list/filter")
+    @GetMapping(value="/projects/filter")
     public List<Project> projectListFiltered(@RequestParam(value = "status", required = false) String status,
                                              @RequestParam(value = "tag", required = false) List<String> tags) {
         return projectStorage.getBy(status, tags).collect(Collectors.toList());

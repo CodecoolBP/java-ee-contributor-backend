@@ -37,7 +37,7 @@ public class ProjectControllerTest {
     @Test
     public void projectListTest() throws Exception {
 
-        URI = "/api/list";
+        URI = "/api/projects";
         String body = "Body";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -58,11 +58,11 @@ public class ProjectControllerTest {
 
     @Test
     public void deleteProjectByIdTest() throws Exception {
-        URI = "/project/1";
+        URI = "/api/project/1";
         String body = "1";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .delete(body)
+                .delete(URI)
                 .accept(MediaType.TEXT_PLAIN).content(body)
                 .contentType(MediaType.TEXT_PLAIN);
         doNothing().when(projectStorageMem).remove(1);
