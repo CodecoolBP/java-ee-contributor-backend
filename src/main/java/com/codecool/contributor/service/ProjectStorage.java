@@ -1,6 +1,6 @@
 package com.codecool.contributor.service;
 
-import com.codecool.contributor.model.Project;
+import com.codecool.contributor.entity.Project;
 
 import java.util.List;
 import java.util.stream.Collectors;

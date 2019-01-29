@@ -1,6 +1,6 @@
 package com.codecool.contributor.controller;
 
-import com.codecool.contributor.model.Project;
+import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.junit.Test;
 import org.junit.runner.RunWith;

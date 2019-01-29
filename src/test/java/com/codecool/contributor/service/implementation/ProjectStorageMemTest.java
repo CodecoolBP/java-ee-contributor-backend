@@ -1,7 +1,7 @@
 package com.codecool.contributor.service.implementation;
 
 import com.codecool.contributor.model.Status;
-import com.codecool.contributor.model.Project;
+import com.codecool.contributor.entity.Project;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;

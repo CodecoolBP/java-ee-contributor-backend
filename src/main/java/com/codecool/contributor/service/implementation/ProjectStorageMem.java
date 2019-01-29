@@ -1,7 +1,7 @@
 package com.codecool.contributor.service.implementation;
 
 
-import com.codecool.contributor.model.Project;
+import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.service.ProjectStorage;
 import org.springframework.stereotype.Service;
 
