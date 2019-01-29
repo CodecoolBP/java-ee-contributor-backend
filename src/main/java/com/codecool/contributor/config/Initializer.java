@@ -15,6 +15,7 @@ public class Initializer {
     private ProjectStorageMem projectStorage;
 
     @Bean
+
     public void init() {
         ArrayList<String> tags = new ArrayList<>();
         tags.add("tag1");
