@@ -19,7 +19,7 @@ public class Project extends BaseModel {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable = false)
     private String title;
@@ -44,13 +44,13 @@ public class Project extends BaseModel {
     @Column(columnDefinition = "mediumblob")
     private byte[] image;
 
-    @Singular
+    @Singular("devId")
     @ManyToOne
-    private Long devId;
+    private int devId;
 
-    @Singular
+    @Singular("orgId")
     @ManyToOne
-    private Long orgId;
+    private int orgId;
 
 
 

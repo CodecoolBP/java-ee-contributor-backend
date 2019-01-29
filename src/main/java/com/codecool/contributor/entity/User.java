@@ -22,7 +22,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private int id;
 
     @Column(nullable = false, unique = true)
     private  String email;
