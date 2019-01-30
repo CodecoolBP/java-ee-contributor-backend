@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @Data
 public class BaseModel {
-    protected int id;
+    protected Integer id;
     @NotEmpty
     protected String name;
     protected String description;

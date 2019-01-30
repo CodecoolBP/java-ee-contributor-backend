@@ -1,4 +1,4 @@
-package com.codecool.contributor.controller;
+/*package com.codecool.contributor.controller;
 
 import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.service.implementation.ProjectStorageMem;
@@ -109,4 +109,4 @@ public class ProjectControllerTest {
     }
 
 
-}
+}*/

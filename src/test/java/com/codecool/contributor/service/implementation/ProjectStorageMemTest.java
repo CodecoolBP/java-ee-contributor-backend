@@ -1,4 +1,4 @@
-package com.codecool.contributor.service.implementation;
+/*package com.codecool.contributor.service.implementation;
 
 import com.codecool.contributor.model.Status;
 import com.codecool.contributor.entity.Project;
@@ -69,4 +69,4 @@ public class ProjectStorageMemTest {
         assertEquals("Test setStatus(): ", Status.INPROGRESS, projectStorageMem.find(1).getStatus());
     }
 
-}
+}*/
