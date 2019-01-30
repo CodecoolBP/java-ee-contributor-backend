@@ -1,5 +1,6 @@
 package com.codecool.contributor.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,8 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-@Entity
+@MappedSuperclass
 public class BaseModel {
 
     @Id
@@ -18,11 +20,7 @@ public class BaseModel {
     @Column(nullable = false)
     protected String title;
 
-    @Column(nullable = false)
-    protected String description;
-
-    public BaseModel(String title, String description) {
+    public BaseModel(String title) {
         this.title = title;
-        this.description = description;
     }
 }

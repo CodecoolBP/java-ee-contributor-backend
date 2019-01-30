@@ -30,18 +30,14 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserType type;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @Singular
     private Set<Project> projects;
-
-
-
-
-
-
 
 }
