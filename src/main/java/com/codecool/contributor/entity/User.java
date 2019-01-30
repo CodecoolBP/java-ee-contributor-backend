@@ -33,7 +33,7 @@ public class User {
     @Column(nullable = false)
     private UserType type;
 
-    @OneToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @Singular
     private Set<Project> projects;
