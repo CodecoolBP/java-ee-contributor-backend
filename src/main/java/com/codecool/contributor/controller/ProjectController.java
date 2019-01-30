@@ -12,13 +12,13 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping(value={"/api", "/"})
 public class ProjectController {
 
     @Autowired
     private ProjectStorageDat projectStorage;
 
-    @GetMapping(value="/projects")
+    @GetMapping(value={"/projects", ""})
     public List<Project> projectList() {
         return projectStorage.getAll().collect(Collectors.toList());
     }
