@@ -37,7 +37,7 @@ public class ProjectControllerTest {
     @Test
     public void projectListTest() throws Exception {
 
-        URI = "/contributorapi/list";
+        URI = "/api/projects";
         String body = "Body";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -58,11 +58,11 @@ public class ProjectControllerTest {
 
     @Test
     public void deleteProjectByIdTest() throws Exception {
-        URI = "/project/1/delete";
+        URI = "/api/project/1";
         String body = "1";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
-                .delete(body)
+                .delete(URI)
                 .accept(MediaType.TEXT_PLAIN).content(body)
                 .contentType(MediaType.TEXT_PLAIN);
         doNothing().when(projectStorageMem).remove(1);
@@ -80,7 +80,7 @@ public class ProjectControllerTest {
 
     @Test
     public void addProjectTest() throws Exception {
-        URI = "/contributorapi/project/add";
+        URI = "/api/project/add";
         String body = "    {\n" +
                 "        \"id\": 1,\n" +
                 "        \"name\": \"ProjectCook\",\n" +

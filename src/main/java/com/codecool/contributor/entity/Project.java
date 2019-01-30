@@ -12,23 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class Project extends BaseModel {
 
 
-
-    @Id
-    @GeneratedValue
-    private Integer id;
-
-    @Column(nullable = false)
-    private String title;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String shortDesc;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String desc;
 
     @Column(nullable = false)
     private String organisation;
@@ -52,6 +42,15 @@ public class Project extends BaseModel {
     @ManyToOne
     private User user;
 
+    @Builder
+    public Project(String title, String description, String shortDesc, String organisation, String requirements, List<String> tags) {
+        super(title, description);
+        this.shortDesc = shortDesc;
+        this.organisation = organisation;
+        this.requirements = requirements;
+        this.tags = tags;
+        this.status = Status.OPEN;
+    }
 
 
     public boolean tagsContainCompareTag(List<String> compareTags) {

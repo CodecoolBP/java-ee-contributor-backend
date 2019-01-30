@@ -33,7 +33,7 @@ public class ProjectStorageMem implements ProjectStorage {
     @Override
     public Project edit(Project editedProject) {
         Project baseProject = this.find(editedProject.getId());
-        baseProject.setName(editedProject.getName());
+        baseProject.setTitle(editedProject.getTitle());
         baseProject.setDescription(editedProject.getDescription());
         baseProject.setShortDesc(editedProject.getShortDesc());
         baseProject.setOrganisation(editedProject.getOrganisation());
