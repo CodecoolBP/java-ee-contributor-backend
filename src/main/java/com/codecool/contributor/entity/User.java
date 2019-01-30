@@ -1,6 +1,8 @@
 package com.codecool.contributor.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,6 +39,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
+    @JsonIgnoreProperties("user")
     @Singular
     private Set<Project> projects;
 

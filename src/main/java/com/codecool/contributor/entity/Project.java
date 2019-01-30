@@ -2,6 +2,7 @@ package com.codecool.contributor.entity;
 
 import com.codecool.contributor.model.BaseModel;
 import com.codecool.contributor.model.Status;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -41,6 +42,7 @@ public class Project extends BaseModel {
     private Integer devId;
 
     @ManyToOne
+    @JsonIgnoreProperties("projects")
     private User user;
 
     @Builder
