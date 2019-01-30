@@ -39,7 +39,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties("user")
     @Singular
     private Set<Project> projects;
 
