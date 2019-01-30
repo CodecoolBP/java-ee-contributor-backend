@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 
 public class BaseModel {
     protected Integer id;
-    @NotEmpty
+
     protected String name;
     protected String description;
 

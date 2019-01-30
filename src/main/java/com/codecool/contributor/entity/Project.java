@@ -24,16 +24,16 @@ public class Project extends BaseModel {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String shortDesc;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String desc;
 
     @Column(nullable = false)
     private String organisation;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String requirements;
 
     @ElementCollection
