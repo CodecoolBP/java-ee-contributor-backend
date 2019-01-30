@@ -1,6 +1,7 @@
 package com.codecool.contributor.controller;
 
 import com.codecool.contributor.entity.Project;
+import com.codecool.contributor.service.implementation.ProjectStorageDat;
 import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 public class ProjectController {
 
     @Autowired
-    private ProjectStorageMem projectStorage;
+    private ProjectStorageDat projectStorage;
 
     @GetMapping(value="/projects")
     public List<Project> projectList() {
@@ -51,7 +52,7 @@ public class ProjectController {
 
     @PutMapping(value="/project/{id}")
     public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
-        if (id == editedProject.getId()) {
+        if (id.equals(editedProject.getId())) {
             Project returnedProject = this.projectStorage.edit(editedProject);
             List<Project> returnList = new ArrayList<>();
             returnList.add(returnedProject);

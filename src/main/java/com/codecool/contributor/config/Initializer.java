@@ -5,6 +5,8 @@ import com.codecool.contributor.entity.User;
 import com.codecool.contributor.model.Status;
 import com.codecool.contributor.repository.ProjectRepository;
 import com.codecool.contributor.repository.UserRepository;
+import com.codecool.contributor.service.ProjectStorage;
+import com.codecool.contributor.service.implementation.ProjectStorageDat;
 import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 public class Initializer {
 
     @Autowired
-    private ProjectStorageMem projectStorage;
+    private ProjectStorageDat projectStorage;
 
     @Autowired
     private ProjectRepository ProjectRepository;
