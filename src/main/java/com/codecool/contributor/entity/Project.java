@@ -19,13 +19,16 @@ public class Project extends BaseModel {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Column(nullable = false)
     private String title;
 
     @Column(nullable = false)
     private String shortDesc;
+
+    @Column(nullable = false)
+    private String desc;
 
     @Column(nullable = false)
     private String organisation;
@@ -44,13 +47,10 @@ public class Project extends BaseModel {
     @Column(columnDefinition = "mediumblob")
     private byte[] image;
 
-    @Singular("devId")
-    @ManyToOne
-    private int devId;
+    private Integer devId;
 
-    @Singular("orgId")
     @ManyToOne
-    private int orgId;
+    private User user;
 
 
 

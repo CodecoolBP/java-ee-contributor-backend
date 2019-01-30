@@ -22,7 +22,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @Column(nullable = false, unique = true)
     private  String email;
@@ -33,7 +33,7 @@ public class User {
     @Column(nullable = false)
     private UserType type;
 
-    @OneToMany(mappedBy = "projects")
+    @OneToMany(mappedBy = "projects", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @Singular
     private Set<Project> projects;
