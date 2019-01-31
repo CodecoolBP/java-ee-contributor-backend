@@ -49,8 +49,7 @@ public class ProjectController {
     @PutMapping(value="/project/{id}")
     public Project editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
         if (id.equals(editedProject.getId())) {
-            Project returnedProject = this.projectStorage.edit(editedProject);
-            return returnedProject;
+            return this.projectStorage.edit(editedProject);
         }
         return null;
     }
