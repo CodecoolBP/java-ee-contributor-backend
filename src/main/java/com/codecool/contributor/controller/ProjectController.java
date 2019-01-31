@@ -30,10 +30,8 @@ public class ProjectController {
     }
 
     @GetMapping(value="/project/{id}")
-    public List<Project> projectById(@PathVariable("id") Integer id) {
-        List<Project> returnList = new ArrayList<>();
-        returnList.add(projectStorage.find(id));
-        return returnList;
+    public Project projectById(@PathVariable("id") Integer id) {
+        return projectStorage.find(id);
     }
 
     @PostMapping("/project/add")
