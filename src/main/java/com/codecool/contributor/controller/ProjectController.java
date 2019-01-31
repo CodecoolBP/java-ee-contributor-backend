@@ -47,13 +47,11 @@ public class ProjectController {
     }
 
     @PutMapping(value="/project/{id}")
-    public List<Project> editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
+    public Project editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
         if (id.equals(editedProject.getId())) {
             Project returnedProject = this.projectStorage.edit(editedProject);
-            List<Project> returnList = new ArrayList<>();
-            returnList.add(returnedProject);
-            return returnList;
+            return returnedProject;
         }
-        return new ArrayList<>();
+        return null;
     }
 }
