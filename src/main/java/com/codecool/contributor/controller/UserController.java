@@ -1,5 +1,6 @@
 package com.codecool.contributor.controller;
 
+import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.entity.User;
 import com.codecool.contributor.service.UserStorage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,13 @@ public class UserController {
     public String deleteUserById(@PathVariable("id") Integer id) {
         this.userStorage.remove(id);
         return "Success.";
+    }
+
+    @PutMapping(value="/user/{id}")
+    public User editUserById(@PathVariable("id") Integer id, @RequestBody User editedUser) {
+        if (id.equals(editedUser.getId())) {
+            return this.userStorage.edit(editedUser);
+        }
+        return null;
     }
 }

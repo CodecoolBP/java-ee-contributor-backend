@@ -31,10 +31,10 @@ public class UserStorageDat implements UserStorage {
     @Override
     public User edit(User editedUser) {
         User baseUser = userRepository.findById(editedUser.getId()).orElse(null);
-        baseUser.setEmail(editedUser.getEmail());
-        baseUser.setPassword(editedUser.getPassword());
-        baseUser.setType(editedUser.getType());
-        userRepository.saveAndFlush(baseUser);
-        return userRepository.findById(baseUser.getId()).orElse(null);
+        if (baseUser != null) {
+            userRepository.saveAndFlush(editedUser);
+            return baseUser;
+        }
+        return null;
     }
 }
