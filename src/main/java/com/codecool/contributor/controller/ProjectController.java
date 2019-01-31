@@ -35,11 +35,9 @@ public class ProjectController {
     }
 
     @PostMapping("/project/add")
-    public List<Project> addProject(@RequestBody Project project) {
+    public Project addProject(@RequestBody Project project) {
         this.projectStorage.add(project);
-        List<Project> returnList = new ArrayList<>();
-        returnList.add(project);
-        return returnList;
+        return project;
     }
 
     @DeleteMapping(value="/project/{id}")
