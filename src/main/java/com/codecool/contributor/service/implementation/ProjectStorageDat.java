@@ -34,15 +34,11 @@ public class ProjectStorageDat implements ProjectStorage {
     @Override
     public Project edit(Project editedProject) {
         Project baseProject = projectRepository.findById(editedProject.getId()).orElse(null);
-        baseProject.setTitle(editedProject.getTitle());
-        baseProject.setDescription(editedProject.getDescription());
-        baseProject.setShortDesc(editedProject.getShortDesc());
-        baseProject.setOrganisation(editedProject.getOrganisation());
-        baseProject.setRequirements(editedProject.getRequirements());
-        baseProject.setTags(editedProject.getTags());
-        baseProject.setStatus(editedProject.getStatus());
-        projectRepository.saveAndFlush(baseProject);
-        return projectRepository.findById(baseProject.getId()).orElse(null);
+        if (baseProject != null) {
+            projectRepository.saveAndFlush(editedProject);
+            return baseProject;
+        }
+        return null;
     }
 
     @Override
