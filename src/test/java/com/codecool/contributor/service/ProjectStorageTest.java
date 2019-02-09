@@ -10,7 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import static org.junit.Assert.*;
@@ -23,14 +22,10 @@ public class ProjectStorageTest {
     @Autowired
     private ProjectStorage projectStorage;
 
-    private ArrayList<String> tags = new ArrayList<>();
-
     private Project testProject;
 
     @Before
-    public void init() {
-        tags.add("tag1");
-        tags.add("tag2");
+    public void setUp() { ;
         testProject = Project.builder()
                 .title("titleTest")
                 .shortDesc("shortDescTest")
@@ -42,12 +37,12 @@ public class ProjectStorageTest {
     }
 
     @After
-    public void clean() {
+    public void tearDown() {
         projectStorage.remove(testProject.getId());
     }
 
     @Test
-    public void testAddNewProject() {
+    public void addNewProject() {
         Project testProjectForAdd = Project.builder()
                 .title("TestProjectForAdd")
                 .shortDesc("shortDescTest")
