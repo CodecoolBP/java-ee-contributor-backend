@@ -1,11 +1,13 @@
 package com.codecool.contributor.service;
 
 import com.codecool.contributor.model.Project;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Service
 public interface ProjectStorage {
 
     void add(Project project);

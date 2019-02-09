@@ -5,9 +5,9 @@ import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.UserRepository;
 import com.codecool.contributor.service.UserStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class UserStorageJpa implements UserStorage {
 
     @Autowired

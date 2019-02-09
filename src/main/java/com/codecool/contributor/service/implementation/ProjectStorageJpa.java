@@ -4,12 +4,12 @@ import com.codecool.contributor.model.Project;
 import com.codecool.contributor.service.ProjectRepository;
 import com.codecool.contributor.service.ProjectStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Stream;
 
-@Service
+@Component
 public class ProjectStorageJpa implements ProjectStorage {
 
     @Autowired
