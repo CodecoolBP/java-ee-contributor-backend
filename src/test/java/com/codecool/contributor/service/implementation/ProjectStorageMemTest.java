@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ProjectStorageMemTest {
 
 
-    ProjectStorageMem projectStorageMem = new ProjectStorageMem();
+    ProjectStorageDat projectStorageDat = new ProjectStorageDat();
     ArrayList<String> tags = new ArrayList<>();
 
     @Before

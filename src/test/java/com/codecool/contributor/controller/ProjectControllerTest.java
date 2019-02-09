@@ -1,7 +1,6 @@
 /*package com.codecool.contributor.controller;
 
 import com.codecool.contributor.entity.Project;
-import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -31,7 +30,7 @@ public class ProjectControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private ProjectStorageMem projectStorageMem;
+    private ProjectStorageDat projectStorageDat;
 
 
     @Test

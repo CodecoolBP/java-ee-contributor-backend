@@ -2,19 +2,14 @@ package com.codecool.contributor.config;
 
 import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.entity.User;
-import com.codecool.contributor.model.Status;
 import com.codecool.contributor.repository.ProjectRepository;
 import com.codecool.contributor.repository.UserRepository;
-import com.codecool.contributor.service.ProjectStorage;
 import com.codecool.contributor.service.implementation.ProjectStorageDat;
-import com.codecool.contributor.service.implementation.ProjectStorageMem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
-import java.util.ArrayList;
 
 @Configuration
 public class Initializer {
