@@ -1,6 +1,5 @@
 package com.codecool.contributor.entity;
 
-import com.codecool.contributor.model.BaseModel;
 import com.codecool.contributor.model.Status;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
@@ -12,9 +11,17 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+@Builder
 @Entity
-public class Project extends BaseModel {
+public class Project {
+
+    @Id
+    @GeneratedValue
+    protected Integer id;
+
+    @Column(nullable = false)
+    protected String title;
+
     @Column(nullable = false, columnDefinition = "TEXT")
     protected String description;
 
@@ -44,18 +51,6 @@ public class Project extends BaseModel {
     @ManyToOne
     @JsonIgnoreProperties("projects")
     private User user;
-
-    @Builder
-    public Project(String title, String description, String shortDesc, String organisation, String requirements, List<String> tags) {
-        super(title);
-        this.description = description;
-        this.shortDesc = shortDesc;
-        this.organisation = organisation;
-        this.requirements = requirements;
-        this.tags = tags;
-        this.status = Status.OPEN;
-    }
-
 
 
     public boolean tagsContainCompareTag(List<String> compareTags) {
