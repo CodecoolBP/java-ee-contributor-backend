@@ -1,6 +1,6 @@
 package com.codecool.contributor.controller;
 
-import com.codecool.contributor.entity.User;
+import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.UserStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

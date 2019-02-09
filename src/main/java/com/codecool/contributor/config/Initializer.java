@@ -1,7 +1,7 @@
 package com.codecool.contributor.config;
 
-import com.codecool.contributor.entity.Project;
-import com.codecool.contributor.entity.User;
+import com.codecool.contributor.model.Project;
+import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.ProjectStorage;
 import com.codecool.contributor.service.UserStorage;
 import org.springframework.beans.factory.annotation.Autowired;

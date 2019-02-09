@@ -1,6 +1,6 @@
 package com.codecool.contributor.service;
 
-import com.codecool.contributor.entity.User;
+import com.codecool.contributor.model.User;
 
 public interface UserStorage {
 
