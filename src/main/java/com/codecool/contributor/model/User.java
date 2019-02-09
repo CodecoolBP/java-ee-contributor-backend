@@ -1,7 +1,6 @@
 package com.codecool.contributor.model;
 
 
-import com.codecool.contributor.model.Project;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 

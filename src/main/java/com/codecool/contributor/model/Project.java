@@ -42,7 +42,8 @@ public class Project {
     private List<String> tags;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    @Builder.Default
+    private Status status = Status.OPEN;
 
     @Lob
     @EqualsAndHashCode.Exclude
