@@ -2,9 +2,8 @@ package com.codecool.contributor.config;
 
 import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.entity.User;
-import com.codecool.contributor.repository.ProjectRepository;
-import com.codecool.contributor.repository.UserRepository;
-import com.codecool.contributor.service.implementation.ProjectStorageDat;
+import com.codecool.contributor.service.ProjectStorage;
+import com.codecool.contributor.service.UserStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -15,13 +14,10 @@ import org.springframework.context.annotation.Profile;
 public class Initializer {
 
     @Autowired
-    private ProjectStorageDat projectStorage;
+    private ProjectStorage projectStorage;
 
     @Autowired
-    private ProjectRepository ProjectRepository;
-
-    @Autowired
-    private UserRepository UserRepository;
+    private UserStorage userStorage;
 
     @Bean
     @Profile("production")
@@ -92,8 +88,8 @@ public class Initializer {
             suitup.setUser(user1);
             childrenshope.setUser(user2);
 
-            UserRepository.save(user1);
-            UserRepository.save(user2);
+            userStorage.add(user1);
+            userStorage.add(user2);
 
         };
 

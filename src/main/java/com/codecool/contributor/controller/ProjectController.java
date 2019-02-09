@@ -1,7 +1,7 @@
 package com.codecool.contributor.controller;
 
 import com.codecool.contributor.entity.Project;
-import com.codecool.contributor.service.implementation.ProjectStorageDat;
+import com.codecool.contributor.service.ProjectStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class ProjectController {
 
     @Autowired
-    private ProjectStorageDat projectStorage;
+    private ProjectStorage projectStorage;
 
     @GetMapping(value={"/projects", ""})
     public List<Project> projectList() {

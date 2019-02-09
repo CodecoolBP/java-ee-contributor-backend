@@ -1,6 +1,5 @@
 package com.codecool.contributor.service.implementation;
 
-
 import com.codecool.contributor.entity.Project;
 import com.codecool.contributor.repository.ProjectRepository;
 import com.codecool.contributor.service.ProjectStorage;
