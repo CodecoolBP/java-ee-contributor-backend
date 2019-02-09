@@ -16,10 +16,8 @@ import java.util.Set;
 public class User {
 
     public enum UserType {
-
         ORGANISATION,
         DEVELOPER,
-
     }
 
     @Id

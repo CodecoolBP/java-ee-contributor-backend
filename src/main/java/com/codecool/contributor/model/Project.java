@@ -14,6 +14,10 @@ import java.util.List;
 @Entity
 public class Project {
 
+    public enum Status {
+        OPEN, INPROGRESS, CLOSED
+    }
+
     @Id
     @GeneratedValue
     protected Integer id;
