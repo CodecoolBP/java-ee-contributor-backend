@@ -1,4 +1,4 @@
-package com.codecool.contributor.repository;
+package com.codecool.contributor.service;
 
 import com.codecool.contributor.model.Project;
 import org.springframework.data.jpa.repository.JpaRepository;
