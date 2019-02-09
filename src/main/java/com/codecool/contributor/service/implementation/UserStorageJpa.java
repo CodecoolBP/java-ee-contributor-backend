@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserStorageDat implements UserStorage {
+public class UserStorageJpa implements UserStorage {
 
     @Autowired
     private UserRepository userRepository;

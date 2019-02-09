@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @Service
-public class ProjectStorageDat implements ProjectStorage {
+public class ProjectStorageJpa implements ProjectStorage {
 
     @Autowired
     private ProjectRepository projectRepository;
