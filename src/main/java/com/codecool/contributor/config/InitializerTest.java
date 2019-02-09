@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-public class Initializer {
+public class InitializerTest {
 
     @Autowired
     private ProjectStorage projectStorage;
@@ -20,8 +20,8 @@ public class Initializer {
     private UserStorage userStorage;
 
     @Bean
-    @Profile("production")
-    public CommandLineRunner init() {
+    @Profile("test")
+    public CommandLineRunner initTest() {
 
         return args -> {
 
@@ -41,52 +41,22 @@ public class Initializer {
                     .requirements("Map API (Google Maps and Apple Maps for example.) User login to save locations")
                     .build();
 
-            Project doggo = Project.builder()
-                    .title("Animal shelter web app")
-                    .shortDesc("A web application for an animal shelter.")
-                    .description("Web application for an animal shelter for an easier adoption process. We'd like a list of the animals with a datapage for each of them. And also we'd like a Map on our page for the soon to be adopters to find us easily")
-                    .organisation("Doggo")
-                    .requirements("User registration, list of animals, datapage for animals, contact menu, map")
-                    .build();
-
-            Project suitup = Project.builder()
-                    .title("Clothes collecting app")
-                    .shortDesc("Clothes collecting places mobile app")
-                    .description("A simple mobile app (for Android and iOS too) that lists all the clothes collecting places with the type of clothes they need (adult, little girl or boy clothes etc.) The app would show the place's contacts, addresses and shows them on a map as well. It also sends you notification about the upcomming clothes collecting events.")
-                    .organisation("Suit Up")
-                    .requirements("List of clothes collecting places, Each of the places their own: contact page, address displayed on a map and clothes needs.")
-                    .build();
-
-            Project childrenshope = Project.builder()
-                    .title("Children's home donation page")
-                    .shortDesc( "A simple donating page")
-                    .description("A simple donation page for a children's home. You can send donations, check previous donating people and you can also read about the organisation's history and work")
-                    .organisation("Children's hope")
-                    .requirements("Donateing page, bank API, Organisation bio page, Previous donators page")
-                    .build();
-
             User user1 = User.builder()
                     .email("user1@codecool.com")
                     .password("1234Codecool")
                     .type(User.UserType.ORGANISATION)
                     .project(redcross)
-                    .project(suitup)
                     .build();
 
             User user2 = User.builder()
                     .email("user2@codecool.com")
                     .password("1234Codecool")
                     .type(User.UserType.ORGANISATION)
-                    .project(doggo)
                     .project(pharmap)
-                    .project(childrenshope)
                     .build();
 
             redcross.setUser(user1);
             pharmap.setUser(user2);
-            doggo.setUser(user2);
-            suitup.setUser(user1);
-            childrenshope.setUser(user2);
 
             userStorage.add(user1);
             userStorage.add(user2);
