@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class ProjectStorageTest {
 
     @Autowired
@@ -67,9 +69,16 @@ public class ProjectStorageTest {
 
     @Test
     public void removeProjectById() {
-        Integer id = testProject.getId();
-        projectStorage.remove(id);
-        assertNull("Testing project removing by id.", projectStorage.find(id));
+        Project testProjectForRemove = Project.builder()
+                .title("TestProjectForRemove")
+                .shortDesc("shortDescTest")
+                .description("DescTest")
+                .organisation("OrgTest")
+                .requirements("reqTest")
+                .build();
+        projectStorage.add(testProjectForRemove);
+        projectStorage.remove(testProjectForRemove.getId());
+        assertNull("Testing project removing by id.", projectStorage.find(testProjectForRemove.getId()));
     }
 
     @Test
