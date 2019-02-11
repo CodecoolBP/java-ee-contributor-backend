@@ -55,8 +55,8 @@ public class InitializerTest {
                     .project(pharmap)
                     .build();
 
-            redcross.setUser(user1);
-            pharmap.setUser(user2);
+            redcross.setProjectOwner(user1);
+            pharmap.setProjectOwner(user2);
 
             userStorage.add(user1);
             userStorage.add(user2);

@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -49,13 +50,17 @@ public class Project {
     @EqualsAndHashCode.Exclude
     @Column(columnDefinition = "mediumblob")
     private byte[] image;
-
-    private Integer devId;
-
+    
     @ManyToOne
     @JsonIgnoreProperties("projects")
-    private User user;
+    private User projectOwner;
 
+    @ElementCollection
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnoreProperties("projects")
+    @Singular
+    private List<User> contributors;
 
     public boolean tagsContainCompareTag(List<String> compareTags) {
         for (String compareTag : compareTags) {

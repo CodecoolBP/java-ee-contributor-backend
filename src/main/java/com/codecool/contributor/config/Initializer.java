@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Configuration
 public class Initializer {
 
@@ -82,12 +85,21 @@ public class Initializer {
                     .project(childrenshope)
                     .build();
 
-            redcross.setUser(user1);
-            pharmap.setUser(user2);
-            doggo.setUser(user2);
-            suitup.setUser(user1);
-            childrenshope.setUser(user2);
+            User user3 = User.builder()
+                    .email("user3@codecool.com")
+                    .password("1234Codecool")
+                    .type(User.UserType.DEVELOPER)
+                    .build();
 
+            redcross.setProjectOwner(user1);
+            pharmap.setProjectOwner(user2);
+            doggo.setProjectOwner(user2);
+            suitup.setProjectOwner(user1);
+            childrenshope.setProjectOwner(user2);
+            List<User> tempList = new ArrayList<>();
+            tempList.add(user3);
+            redcross.setContributors(tempList);
+            userStorage.add(user3);
             userStorage.add(user1);
             userStorage.add(user2);
 

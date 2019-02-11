@@ -33,10 +33,10 @@ public class User {
     @Column(nullable = false)
     private UserType type;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST})
+    @OneToMany(mappedBy = "projectOwner", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties("user")
+    @JsonIgnoreProperties("projectOwner")
     @Singular
     private Set<Project> projects;
 
