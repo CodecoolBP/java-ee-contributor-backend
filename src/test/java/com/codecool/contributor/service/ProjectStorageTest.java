@@ -25,7 +25,7 @@ public class ProjectStorageTest {
     private Project testProject;
 
     @Before
-    public void setUp() { ;
+    public void setUp() {
         testProject = Project.builder()
                 .title("titleTest")
                 .shortDesc("shortDescTest")

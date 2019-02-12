@@ -46,11 +46,9 @@ public class Project {
     @Builder.Default
     private Status status = Status.OPEN;
 
-    @Lob
-    @EqualsAndHashCode.Exclude
-    @Column(columnDefinition = "mediumblob")
-    private byte[] image;
-    
+    @Column(columnDefinition = "TEXT")
+    private String image;
+
     @ManyToOne
     @JsonIgnoreProperties("projects")
     private User projectOwner;
