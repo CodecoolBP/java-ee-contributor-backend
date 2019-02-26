@@ -9,5 +9,5 @@ public interface UserStorage {
     void add(User user);
     User find(int id);
     void remove(int id);
-    User edit(User editedProject );
+    User edit(User editedUser );
 }
