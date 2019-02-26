@@ -61,7 +61,7 @@ public class Initializer {
                     .build();
 
             Project childrenshope = Project.builder()
-                    .title("Children's home donation page")
+                    .title("Children's home page")
                     .shortDesc( "A simple donating page")
                     .description("A simple donation page for a children's home. You can send donations, check previous donating people and you can also read about the organisation's history and work")
                     .organisation("Children's hope")
