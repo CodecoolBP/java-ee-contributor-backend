@@ -43,15 +43,11 @@ public class InitializerTest {
 
             User user1 = User.builder()
                     .email("user1@codecool.com")
-                    .password("1234Codecool")
-                    .type(User.UserType.ORGANISATION)
                     .project(redcross)
                     .build();
 
             User user2 = User.builder()
                     .email("user2@codecool.com")
-                    .password("1234Codecool")
-                    .type(User.UserType.ORGANISATION)
                     .project(pharmap)
                     .build();
 
