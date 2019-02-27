@@ -64,6 +64,7 @@ public class ProjectController {
         HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
         String userEmail = claimsMap.get("email").toString();
         if (id.equals(editedProject.getId()) && userEmail.equals(projectStorage.find(id).getProjectOwner().getEmail())) {
+            this.projectStorage.edit(editedProject);
             return "Success.";
         } else {
             return "Wrong User.";
