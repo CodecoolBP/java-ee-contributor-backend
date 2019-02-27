@@ -59,10 +59,13 @@ public class ProjectController {
     }
 
     @PutMapping(value="/project/{id}")
-    public Project editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) {
-        if (id.equals(editedProject.getId())) {
-            return this.projectStorage.edit(editedProject);
-        }
-        return null;
+    public String editProjectById(@PathVariable("id") Integer id, @RequestBody Project editedProject) throws IOException {
+        String idToken = request.getHeader("idToken");
+        HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
+        String userEmail = claimsMap.get("email").toString();
+        if (id.equals(editedProject.getId()) && userEmail.equals(projectStorage.find(id).getProjectOwner().getEmail())) {
+            return "Success.";
+        } else {
+            return "Wrong User.";
     }
-}
+}}
