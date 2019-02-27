@@ -2,8 +2,8 @@ package com.codecool.contributor.controller;
 
 import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.UserStorage;
+import com.codecool.contributor.utility.JwtDecoder;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.jwt.Jwt;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.HashMap;
 
 @RestController
@@ -33,10 +32,7 @@ public class UserController {
 
     @PostMapping("/user/add")
     public String addUser(@RequestBody String idToken) throws IOException {
-        idToken = idToken.replaceAll("^\"|\"$", "");
-        Jwt decodedToken = JwtHelper.decode(idToken);
-        String jwtClaims = decodedToken.getClaims();
-        HashMap claimsMap = new ObjectMapper().readValue(jwtClaims, HashMap.class);
+        HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
         Object userEmail = claimsMap.get("email");
         User newUser = User.builder()
                 .email(userEmail.toString())
