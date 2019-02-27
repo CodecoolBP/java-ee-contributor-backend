@@ -21,6 +21,14 @@ public class ProjectStorageJpa implements ProjectStorage {
     }
 
     @Override
+    public void increaseViewCounter(Project project) {
+        Integer counter = project.getViewCounter()+1;
+        project.setViewCounter(counter);
+        projectRepository.save(project);
+
+    }
+
+    @Override
     public Project find(int id) {
         return projectRepository.findById(id).orElse(null);
     }
