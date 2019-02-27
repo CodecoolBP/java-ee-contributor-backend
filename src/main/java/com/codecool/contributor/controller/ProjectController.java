@@ -36,7 +36,9 @@ public class ProjectController {
 
     @GetMapping(value="/project/{id}")
     public Project projectById(@PathVariable("id") Integer id) {
-        return projectStorage.find(id);
+        Project project = projectStorage.find(id);
+        projectStorage.increaseViewCounter(project);
+        return project;
     }
 
     @PostMapping("/project/add")

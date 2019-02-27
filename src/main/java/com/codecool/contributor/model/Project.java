@@ -38,6 +38,9 @@ public class Project {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String requirements;
 
+    @Builder.Default
+    private Integer viewCounter = 0;
+
     @ElementCollection
     @Singular
     private List<String> tags;

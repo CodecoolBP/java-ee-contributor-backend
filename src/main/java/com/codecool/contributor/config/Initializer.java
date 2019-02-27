@@ -108,6 +108,14 @@ public class Initializer {
                     .requirements("Party and candidates list, favourite list")
                     .build();
 
+            Project movie = Project.builder()
+                    .title("Movie downloader")
+                    .shortDesc("You know a movie that you want to see badly but you don't want to spend money on it? Let us help you!")
+                    .description("With our website you can view movies online or even download them not so legally but at least free.")
+                    .organisation("Anonymus")
+                    .requirements("Movie list, download option")
+                    .build();
+
             User user1 = User.builder()
                     .email("kinga00099@gmail.com")
                     .project(redcross)
@@ -128,6 +136,7 @@ public class Initializer {
             User user3 = User.builder()
                     .email("user3@codecool.com")
                     .project(bubble)
+                    .project(movie)
                     .build();
 
             redcross.setProjectOwner(user1);
@@ -140,6 +149,7 @@ public class Initializer {
             bubble.setProjectOwner(user3);
             tobacco.setProjectOwner(user1);
             vote.setProjectOwner(user2);
+            movie.setProjectOwner(user3);
             List<User> tempList = new ArrayList<>();
             tempList.add(user3);
             redcross.setContributors(tempList);

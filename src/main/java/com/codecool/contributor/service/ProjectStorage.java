@@ -14,6 +14,7 @@ public interface ProjectStorage {
     Project find(int id);
     void remove(int id);
     Project edit(Project editedProject );
+    void increaseViewCounter(Project project);
 
 
     Stream<Project> getAll();
