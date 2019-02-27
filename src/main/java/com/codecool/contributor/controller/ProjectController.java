@@ -2,9 +2,13 @@ package com.codecool.contributor.controller;
 
 import com.codecool.contributor.model.Project;
 import com.codecool.contributor.service.ProjectStorage;
+import com.codecool.contributor.utility.JwtDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,6 +19,9 @@ public class ProjectController {
 
     @Autowired
     private ProjectStorage projectStorage;
+
+    @Autowired
+    private HttpServletRequest request;
 
     @GetMapping(value={"/projects", ""})
     public List<Project> projectList() {
@@ -39,9 +46,16 @@ public class ProjectController {
     }
 
     @DeleteMapping(value="/project/{id}")
-    public String deleteProjectById(@PathVariable("id") Integer id) {
-        this.projectStorage.remove(id);
-        return "Success.";
+    public String deleteProjectById(@PathVariable("id") Integer id) throws IOException {
+        String idToken = request.getHeader("idToken");
+        HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
+        String userEmail = claimsMap.get("email").toString();
+        if (userEmail.equals(projectStorage.find(id).getProjectOwner().getEmail())) {
+            this.projectStorage.remove(id);
+            return "Success.";
+        } else {
+            return "Wrong User.";
+        }
     }
 
     @PutMapping(value="/project/{id}")
