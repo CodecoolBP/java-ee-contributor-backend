@@ -14,24 +14,12 @@ import java.util.Set;
 @Entity
 public class User {
 
-    public enum UserType {
-        ORGANISATION,
-        DEVELOPER,
-    }
-
     @Id
     @GeneratedValue
     private Integer id;
 
     @Column(nullable = false, unique = true)
     private  String email;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private UserType type;
 
     @OneToMany(mappedBy = "projectOwner", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude

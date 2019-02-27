@@ -70,16 +70,12 @@ public class Initializer {
 
             User user1 = User.builder()
                     .email("user1@codecool.com")
-                    .password("1234Codecool")
-                    .type(User.UserType.ORGANISATION)
                     .project(redcross)
                     .project(suitup)
                     .build();
 
             User user2 = User.builder()
                     .email("user2@codecool.com")
-                    .password("1234Codecool")
-                    .type(User.UserType.ORGANISATION)
                     .project(doggo)
                     .project(pharmap)
                     .project(childrenshope)
@@ -87,8 +83,6 @@ public class Initializer {
 
             User user3 = User.builder()
                     .email("user3@codecool.com")
-                    .password("1234Codecool")
-                    .type(User.UserType.DEVELOPER)
                     .build();
 
             redcross.setProjectOwner(user1);

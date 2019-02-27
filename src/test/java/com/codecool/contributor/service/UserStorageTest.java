@@ -26,8 +26,6 @@ class UserStorageTest {
     public void setUp() {
         testUser = User.builder()
                 .email("testUser@codecool.com")
-                .password("1234Codecool")
-                .type(User.UserType.ORGANISATION)
                 .build();
     }
 
