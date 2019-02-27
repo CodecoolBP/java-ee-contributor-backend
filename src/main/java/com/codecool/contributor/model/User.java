@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -24,8 +25,14 @@ public class User {
     @OneToMany(mappedBy = "projectOwner", cascade = {CascadeType.PERSIST})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties("projectOwner")
+    @JsonIgnoreProperties({"contributors", "projectOwner"})
     @Singular
     private Set<Project> projects;
 
+    @ManyToMany(mappedBy = "contributors", cascade = {CascadeType.PERSIST})
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnoreProperties({"contributors", "projectOwner"})
+    @Singular
+    private List<Project> contributions;
 }

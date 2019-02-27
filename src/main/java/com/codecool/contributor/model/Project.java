@@ -50,13 +50,13 @@ public class Project {
     private String image;
 
     @ManyToOne
-    @JsonIgnoreProperties("projects")
+    @JsonIgnoreProperties({"contributions", "projects"})
     private User projectOwner;
 
-    @ElementCollection
+    @ManyToMany
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties("projects")
+    @JsonIgnoreProperties({"contributions", "projects"})
     @Singular
     private List<User> contributors;
 

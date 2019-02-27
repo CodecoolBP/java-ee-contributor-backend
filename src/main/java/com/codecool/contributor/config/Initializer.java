@@ -146,6 +146,10 @@ public class Initializer {
             userStorage.add(user3);
             userStorage.add(user1);
             userStorage.add(user2);
+            List<Project> tempList2 = new ArrayList<>();
+            tempList2.add(redcross);
+            user3.setContributions(tempList2);
+            userStorage.edit(user3);
 
         };
 
