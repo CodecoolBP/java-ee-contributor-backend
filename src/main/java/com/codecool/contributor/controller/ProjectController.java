@@ -3,6 +3,7 @@ package com.codecool.contributor.controller;
 import com.codecool.contributor.model.Project;
 import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.ProjectStorage;
+import com.codecool.contributor.service.UserStorage;
 import com.codecool.contributor.utility.JwtDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 @CrossOrigin
 @RequestMapping(value={"/api", "/"})
 public class ProjectController {
+    @Autowired
+    private UserStorage userStorage;
 
     @Autowired
     private ProjectStorage projectStorage;
@@ -43,7 +46,11 @@ public class ProjectController {
     }
 
     @PostMapping("/project/add")
-    public Project addProject(@RequestBody Project project) {
+    public Project addProject(@RequestBody Project project) throws IOException {
+        String idToken = request.getHeader("idToken");
+        HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
+        String userEmail = claimsMap.get("email").toString();
+        project.setProjectOwner(userStorage.findByEmail(userEmail));
         this.projectStorage.add(project);
         return project;
     }
