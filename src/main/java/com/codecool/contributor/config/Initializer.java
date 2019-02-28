@@ -134,7 +134,7 @@ public class Initializer {
                     .build();
 
             User user3 = User.builder()
-                    .email("user3@codecool.com")
+                    .email("dr1zzt2.nk@gmail.com")
                     .project(bubble)
                     .project(movie)
                     .build();
