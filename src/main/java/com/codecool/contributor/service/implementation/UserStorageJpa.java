@@ -24,6 +24,11 @@ public class UserStorageJpa implements UserStorage {
     }
 
     @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
     public void remove(int id) {
         userRepository.deleteById(id);
     }

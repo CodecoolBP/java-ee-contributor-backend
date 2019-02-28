@@ -30,6 +30,14 @@ public class UserController {
         return userStorage.find(id);
     }
 
+    @GetMapping(value="/user/token")
+    public User userByToken() throws IOException {
+        String idToken = request.getHeader("idToken");
+        HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
+        String userEmail = claimsMap.get("email").toString();
+        return userStorage.findByEmail(userEmail);
+    }
+
     @PostMapping("/user/add")
     public String addUser(@RequestBody String idToken) throws IOException {
         HashMap claimsMap = JwtDecoder.jwtDecode(idToken);
