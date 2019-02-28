@@ -1,6 +1,7 @@
 package com.codecool.contributor.controller;
 
 import com.codecool.contributor.model.Project;
+import com.codecool.contributor.model.User;
 import com.codecool.contributor.service.ProjectStorage;
 import com.codecool.contributor.utility.JwtDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,18 @@ public class ProjectController {
             return "Success.";
         } else {
             return "Wrong User.";
+        }
+    }
+
+    @PutMapping(value="/project/{id}/contribute")
+    public String contributeProjectById(@PathVariable("id") Integer id, @RequestBody User currentUser) throws IOException {
+        Project projectContributed = projectStorage.find(id);
+        if (!projectContributed.getProjectOwner().getEmail().equals(currentUser.getEmail())) {
+            projectContributed.getContributors().add(currentUser);
+            projectStorage.edit(projectContributed);
+            return "Success.";
+        } else {
+            return "You cannot contribute your own project.";
         }
     }
 
